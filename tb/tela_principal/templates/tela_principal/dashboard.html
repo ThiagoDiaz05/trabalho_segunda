@@ -1,0 +1,13 @@
+<h1>Meus Grupos</h1>
+<a href="{% url 'criar_grupo' %}">Criar Grupo</a>
+<a href="{% url 'pesquisar_grupos' %}">Pesquisar Grupos</a>
+
+<ul>
+{% for grupo in grupos %}
+    <li>
+        <a href="{% url 'grupo_detail' grupo.id %}">{{ grupo.nome }}</a>
+    </li>
+{% empty %}
+    <li>Você não participa de nenhum grupo ainda.</li>
+{% endfor %}
+</ul>

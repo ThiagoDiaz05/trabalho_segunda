@@ -1,0 +1,28 @@
+<h1>{{ grupo.nome }}</h1>
+<p>{{ grupo.descricao }}</p>
+{% if user in grupo.participantes.all %}
+    <a href="{% url 'sair_grupo' grupo.id %}">Sair do grupo</a>
+{% else %}
+    <a href="{% url 'entrar_grupo' grupo.id %}">Entrar no grupo</a>
+{% endif %}
+
+<h2>Postagens</h2>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Postar</button>
+</form>
+
+<ul>
+{% for postagem in postagens %}
+    <li>
+        <strong>{{ postagem.autor.username }}</strong> - {{ postagem.data_criacao }}<br>
+        {{ postagem.texto }}<br>
+        {% if postagem.imagem %}
+            <img src="{{ postagem.imagem.url }}" width="200">
+        {% endif %}
+    </li>
+{% empty %}
+    <li>Nenhuma postagem ainda.</li>
+{% endfor %}
+</ul>

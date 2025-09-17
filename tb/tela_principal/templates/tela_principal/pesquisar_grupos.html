@@ -1,0 +1,13 @@
+<h1>Pesquisar Grupos</h1>
+<form method="GET">
+    <input type="text" name="q" value="{{ query }}" placeholder="Digite nome ou assunto">
+    <button type="submit">Buscar</button>
+</form>
+
+<ul>
+{% for grupo in grupos %}
+    <li><a href="{% url 'grupo_detail' grupo.id %}">{{ grupo.nome }}</a></li>
+{% empty %}
+    <li>Nenhum grupo encontrado.</li>
+{% endfor %}
+</ul>

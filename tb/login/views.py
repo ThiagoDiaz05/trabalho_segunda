@@ -10,7 +10,7 @@ def login_view(request):
 
         if user is not None:
             auth_login(request, user)
-            return redirect('home')  # ou para onde você quiser
+            return redirect('dashboard')  # ou para onde você quiser
         else:
             messages.error(request, 'Usuário ou senha inválidos.')
 

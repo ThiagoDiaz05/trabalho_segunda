@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Tela Inicial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 100px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            margin-bottom: 40px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            font-size: 18px;
+            text-decoration: none;
+            color: white;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+        .btn-login {
+            background-color: #007BFF;
+        }
+        .btn-login:hover {
+            background-color: #0056b3;
+        }
+        .btn-register {
+            background-color: #28a745;
+        }
+        .btn-register:hover {
+            background-color: #1e7e34;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bem-vindo ao Sistema</h1>
+    <a href="{% url 'login' %}" class="btn btn-login">Login</a>
+    <a href="{% url 'register' %}" class="btn btn-register">Registrar</a>
+</body>
+</html>
