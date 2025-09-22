@@ -1,13 +1,30 @@
-<h1>Meus Grupos</h1>
-<a href="{% url 'criar_grupo' %}">Criar Grupo</a>
-<a href="{% url 'pesquisar_grupos' %}">Pesquisar Grupos</a>
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Meus Grupos</title>
+    <link rel="stylesheet" href="{% static 'tela_principal/css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Meus Grupos</h1>
 
-<ul>
-{% for grupo in grupos %}
-    <li>
-        <a href="{% url 'grupo_detail' grupo.id %}">{{ grupo.nome }}</a>
-    </li>
-{% empty %}
-    <li>Você não participa de nenhum grupo ainda.</li>
-{% endfor %}
-</ul>
+        <div class="actions">
+            <a href="{% url 'criar_grupo' %}" class="btn">+ Criar Grupo</a>
+            <a href="{% url 'pesquisar_grupos' %}" class="btn secondary">🔍 Pesquisar Grupos</a>
+        </div>
+
+        <div class="grupos-lista">
+            {% for grupo in grupos %}
+                <div class="grupo-card">
+                    <h3>{{ grupo.nome }}</h3>
+                    <a href="{% url 'grupo_detail' grupo.id %}" class="btn small">Ver detalhes</a>
+                </div>
+            {% empty %}
+                <p class="empty">Você não participa de nenhum grupo ainda.</p>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

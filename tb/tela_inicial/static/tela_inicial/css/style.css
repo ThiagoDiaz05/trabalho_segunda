@@ -1,0 +1,59 @@
+:root {
+    --color-primary: #2D3E50;
+    --color-secondary: #3498DB;
+    --color-bg: #F9F9F9;
+    --color-text: #333333;
+    --color-success: #27AE60;
+    --color-danger: #C0392B;
+
+    --font-main: "Segoe UI", Arial, sans-serif;
+    --radius: 8px;
+    --shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    text-align: center;
+    margin: 0;
+    padding-top: 100px;
+}
+
+h1 {
+    margin-bottom: 40px;
+    color: var(--color-primary);
+}
+
+/* Botões */
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    margin: 10px;
+    font-size: 18px;
+    text-decoration: none;
+    border-radius: var(--radius);
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+}
+
+/* Login = cor secundária */
+.btn-login {
+    background-color: var(--color-secondary);
+    color: white;
+}
+.btn-login:hover {
+    background-color: #2a7abf; /* tom mais escuro */
+    transform: translateY(-2px);
+}
+
+/* Registrar = cor de sucesso */
+.btn-register {
+    background-color: var(--color-success);
+    color: white;
+}
+.btn-register:hover {
+    background-color: #1e7e34; /* tom mais escuro */
+    transform: translateY(-2px);
+}
